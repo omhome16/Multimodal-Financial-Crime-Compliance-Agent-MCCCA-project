@@ -1,3 +1,5 @@
 MCCCA/
 MCCCA/
 .MCCCA/ 
+__pycache__/
+*.pyc

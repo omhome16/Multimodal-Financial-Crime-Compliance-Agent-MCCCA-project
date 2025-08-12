@@ -1,0 +1,44 @@
+name: CI - MCCCA
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        lfs: true  # also pull Git LFS files
+
+    # 2. Set up Python (with caching for speed)
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+        cache: "pip"
+
+    # 3. Upgrade pip & install dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install pytest black flake8
+
+    # 4. Lint with Black
+    - name: Check code formatting with Black
+      run: black --check .
+
+    # 5. Lint with Flake8
+    - name: Lint with Flake8
+      run: flake8 .
+
+    # 6. Run Pytest
+    - name: Run tests
+      run: pytest -q
