@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Evidence",
+  "type": "object",
+  "properties": {
+    "evidence_id": { "type": "string", "format": "uuid" },
+    "case_id": { "type": "string", "format": "uuid" },
+    "type": { "type": "string", "enum": ["document", "image", "video", "dataset"] },
+    "source_uri": { "type": "string", "format": "uri" },
+    "metadata": { "type": "object" },
+    "uploaded_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["evidence_id", "case_id", "type", "source_uri"]
+}

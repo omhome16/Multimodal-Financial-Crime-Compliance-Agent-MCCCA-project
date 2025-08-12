@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Case",
+  "type": "object",
+  "properties": {
+    "case_id": { "type": "string", "format": "uuid" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "status": { "type": "string", "enum": ["open", "in_progress", "closed"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "assigned_investigator_id": { "type": "string", "format": "uuid" }
+  },
+  "required": ["case_id", "title", "status", "created_at"]
+}

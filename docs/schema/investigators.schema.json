@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Investigator",
+  "type": "object",
+  "properties": {
+    "investigator_id": { "type": "string", "format": "uuid" },
+    "name": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "role": { "type": "string", "enum": ["lead", "analyst", "reviewer"] },
+    "active": { "type": "boolean" }
+  },
+  "required": ["investigator_id", "name", "email", "role"]
+}

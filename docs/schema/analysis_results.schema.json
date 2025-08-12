@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AnalysisResult",
+  "type": "object",
+  "properties": {
+    "analysis_id": { "type": "string", "format": "uuid" },
+    "evidence_id": { "type": "string", "format": "uuid" },
+    "model_id": { "type": "string", "format": "uuid" },
+    "result_data": { "type": "object" },
+    "confidence_score": { "type": "number" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["analysis_id", "evidence_id", "model_id", "result_data"]
+}
